@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import com.codingninjas.todolist.DTO.ToDo
 import com.codingninjas.todolist.DTO.ToDoItem
 
-class DBHandler(val context: Context?) : SQLiteOpenHelper(context, DB_NAME, null, DB_VER) {
+class DBHandler(context: Context?) : SQLiteOpenHelper(context, DB_NAME, null, DB_VER) {
 
     override fun onCreate(db: SQLiteDatabase) {
         val createToDoTable = " CREATE TABLE $TABLE_TODO (" +
@@ -129,7 +129,6 @@ class DBHandler(val context: Context?) : SQLiteOpenHelper(context, DB_NAME, null
                 updateToDoItem(item)
             } while (queryResult.moveToNext())
         }
-
         queryResult.close()
     }
 

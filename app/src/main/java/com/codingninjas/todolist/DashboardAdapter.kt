@@ -53,15 +53,9 @@ class DashboardAdapter(val activity: dashboard, var list: MutableList<ToDo>) :
                     }
                     R.id.menu_mark_as_completed->{
                         activity.dbHandler.updateToDoItemCompletedStatus(list[p1].id,true)
-                        activity.findViewById<TextView>(R.id.tv_todo_name).apply {
-                            paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-                        }
                     }
                     R.id.menu_reset->{
                         activity.dbHandler.updateToDoItemCompletedStatus(list[p1].id,false)
-                        activity.findViewById<TextView>(R.id.tv_todo_name).apply {
-                            paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG.inv()
-                        }
                     }
                 }
 
